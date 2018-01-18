@@ -2,4 +2,3 @@
 <p><%= image_tag @movie.image.url(:medium) unless @movie.image.file.nil? %></p>
 <p><%= @movie.title %></p>
 <p><%= @movie.description %></p>
-<p><%= link_to 'Movies', movies_path %></p>

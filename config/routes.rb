@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :user_admins
-  namespace :user_admin do
+  devise_for :admin_users
+  namespace :admin do
     resources :movies
   end
 
