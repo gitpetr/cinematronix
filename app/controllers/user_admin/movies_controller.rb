@@ -1,5 +1,5 @@
-class Admin::MoviesController < ApplicationController
-  before_action :authenticate_admin!
+class UserAdmin::MoviesController < ApplicationController
+  before_action :authenticate_user_admin!
   before_action :load_model, only: %i[show edit update destroy]
 
   def index
@@ -16,7 +16,7 @@ class Admin::MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to admin_movies_path
+      redirect_to user_admin_movies_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::MoviesController < ApplicationController
 
   def update
     if @movie.update(movie_params)
-      redirect_to admin_movies_path
+      redirect_to user_admin_movies_path
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::MoviesController < ApplicationController
 
   def destroy
     @movie.destroy
-    redirect_to admin_movies_path
+    redirect_to user_admin_movies_path
   end
 
   private
