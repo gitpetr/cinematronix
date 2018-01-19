@@ -7,6 +7,8 @@ end
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.4'
+gem 'grape', '~> 1.0', '>= 1.0.2'
+gem 'grape-entity', '~> 0.6.1'
 gem 'mini_magick', '~> 4.8'
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
