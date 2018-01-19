@@ -7,7 +7,7 @@ end
 
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.4'
-gem 'mini_magick'
+gem 'mini_magick', '~> 4.8'
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
