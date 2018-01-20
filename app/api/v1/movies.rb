@@ -1,6 +1,5 @@
 module V1
   class Movies < Grape::API
-    format :json
     resource :movies do
       get '/' do
         Movie.all

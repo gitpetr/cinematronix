@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount V1::Movies => '/api' 
+  mount Root => '/api' 
   devise_for :admin_users
 
   namespace :admin do
