@@ -1,4 +1,6 @@
+module API
 class Root < Grape::API
   format :json
-  mount V1::Movies
+  mount API::V1::Movies
+end
 end

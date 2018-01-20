@@ -1,4 +1,4 @@
-module V1
+module API::V1
   class Movies < Grape::API
     resource :movies do
       get '/' do

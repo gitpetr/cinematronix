@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount Root => '/api' 
+  mount API::Root => '/api' 
   devise_for :admin_users
 
   namespace :admin do
