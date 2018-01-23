@@ -9,6 +9,7 @@ gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.4'
 gem 'grape', '~> 1.0', '>= 1.0.2'
 gem 'grape-entity', '~> 0.6.1'
+gem 'grape_on_rails_routes', '~> 0.3.2'
 gem 'mini_magick', '~> 4.8'
 gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
@@ -22,7 +23,7 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
 end
