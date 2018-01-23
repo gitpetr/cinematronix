@@ -18,9 +18,9 @@ module API::V1
 
       desc 'Create a movie.'
       params do
-        requires :movie, type: Hash do 
-          requires :title 
-          requires :description 
+        requires :movie, type: Hash do
+          requires :title
+          requires :description
         end
       end
 
