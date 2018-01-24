@@ -1,5 +1,5 @@
 Rails.application.configure do
-  # Settings specified here will take precedence over those in config/application.rb.
+    config.webpacker.check_yarn_integrity = true  # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -52,4 +52,6 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # Make javascript_pack_tag load assets from webpack-dev-server.
+  # config.x.webpacker[:dev_server_host] = 'http://localhost:8080'
 end

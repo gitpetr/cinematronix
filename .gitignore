@@ -26,3 +26,9 @@
 config/database.yml
 config/database.yml_old
 comandy.txt
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+yarn-error.log*
+.yarn-integrity
