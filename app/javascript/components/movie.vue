@@ -1,15 +1,12 @@
 <template>
-  <div id="app">
-    <ul>
-        <li v-for="(movie, index) in movies" :key="movie.id">
-            <p>Movie {{index + 1}}: {{movie.title}}</p>
-        </li>
-    </ul>
+  <div id="app1">
+    <h1>Movie {{movie.title}}</h1>
+    <p>{{movie.description}}</p>
+
   </div>
 </template>
 
 <script>
-import Movie from '../components/movie.vue'
 import MovieService from '../services/movie.service.js'
 
 export default {
@@ -25,9 +22,6 @@ export default {
 p {
   font-size: 2em;
   text-align: center;
-}
-li {
   list-style-type: none;
-  color: green;
 }
 </style>
