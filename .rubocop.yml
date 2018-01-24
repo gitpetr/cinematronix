@@ -9,10 +9,12 @@ AllCops:
     - 'app/controllers/users/*.rb'
     - 'app/controllers/admin/setting*.rb'
     - 'app/models/setting*.rb'
+    - 'bin/**/*'
     - 'config/initializers/simple_form*.rb'
     - 'config/initializers/devise.rb'
     - 'config/environments/*.rb'
     - 'db/**/*'
+    - 'node_modules/**/*'
   TargetRubyVersion: 2.4
   DisplayCopNames: true
 

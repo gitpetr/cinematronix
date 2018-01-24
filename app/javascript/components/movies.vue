@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <movieslist :movies="cinema"></movieslist>
     <ul>
         <li v-for="(movie, index) in movies" :key="movie.id">
             <p>Movie {{index + 1}}: {{movie.title}}</p>
