@@ -5,10 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap', '~> 4.0'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise', '~> 4.4'
 gem 'foreman', '~> 0.64'
+gem 'jquery-rails'
 gem 'grape', '~> 1.0', '>= 1.0.2'
 gem 'grape-entity', '~> 0.6.1'
 gem 'grape_on_rails_routes', '~> 0.3.2'

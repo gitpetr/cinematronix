@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <ul>
-        <li v-for="(movie, index) in movies" :key="movie.id">
-            <p>Movie {{index + 1}}: {{movie.title}}</p>
-        </li>
-    </ul>
+      <div class='container'>
+        <div v-for="(movie) in movies" :key="movie.id" class="onemovie">
+            <img :src='movie.image' class="img-fluid clearfix center-block" />
+            <p>Movie {{movie.title}} </p>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -23,11 +24,25 @@ export default {
 
 <style scoped>
 p {
-  font-size: 2em;
+  font-size: 1.1rem;
   text-align: center;
 }
 li {
   list-style-type: none;
-  color: green;
+  color: #292C33;
+}
+.onemovie {
+  width: 200px;
+  height: 300px;
+  float: left;
+}
+.img-fluid {
+  max-width: 100%;
+  min-height: 90%;
+  height: auto;
+}
+ 
+.clearfix:after {
+  clear: both;
 }
 </style>
