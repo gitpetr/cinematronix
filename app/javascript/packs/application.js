@@ -11,10 +11,8 @@ import App from '../components/movies.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))
-  const app = new Vue({
+  new Vue({
     el: 'app',
     render: h => h(App)
   })
-
-  console.log(app)
 })

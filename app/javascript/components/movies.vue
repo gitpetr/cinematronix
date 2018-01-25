@@ -1,25 +1,23 @@
 <template>
   <div id="app">
-      <div class='container'>
-        <div v-for="(movie) in movies" :key="movie.id" class="onemovie">
-            <img :src='movie.image' class="img-fluid clearfix center-block" />
-            <p>Movie {{movie.title}} </p>
-        </div>
-      </div>
+    <div class='container'>
+      <movie v-for="movie in movies"  :movie="movie" :key="movie.id"></movie>
+    </div>
   </div>
 </template>
 
 <script>
-import Movie from '../components/movie.vue'
-import MovieService from '../services/movie.service.js'
+  import Movie from '../components/movie.vue'
+  import MovieService from '../services/movie.service.js'
 
-export default {
-  data: function () {
-    return {
-      movies: MovieService.fetch()
+  export default {
+    data: function () {
+      return {
+        movies: MovieService.fetch()
+      }
     }
   }
-}
+  console.log(Movie)
 </script>
 
 <style scoped>
@@ -33,7 +31,7 @@ li {
 }
 .onemovie {
   width: 200px;
-  height: 300px;
+  height: 312px;
   float: left;
 }
 .img-fluid {
