@@ -14,9 +14,20 @@
     components: {Movie},
     data() {
       return {
-        movies: MovieService.fetch()
+        movies: '',
+        endpoint: 'http://localhost:3000/api/v1/movies'
       }
-    }
+    },
+    methods: {
+      getMovies() {
+        this.$http.get(this.endpoint).then(response => {
+          this.movies = response.body
+          console.log(response.body)
+        }, response => {
+          console.log('ошибка')
+        })
+      }
+    }, created() { this.getMovies() }
   }
   console.log(Movie)
 </script>
