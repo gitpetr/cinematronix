@@ -20,14 +20,8 @@
     },
     methods: {
       getMovies() {
-        this.$http.get(this.endpoint).then(response => {
-          this.movies = response.body
-          console.log(response.body)
-        }, response => {
-          console.log('ошибка')
-        })
+        MovieService.fetch(this)
       }
     }, created() { this.getMovies() }
   }
-  console.log(Movie)
 </script>
