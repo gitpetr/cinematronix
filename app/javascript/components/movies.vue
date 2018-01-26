@@ -12,7 +12,7 @@
 
   export default {
     components: {Movie},
-    data: function () {
+    data() {
       return {
         movies: MovieService.fetch()
       }
@@ -20,5 +20,3 @@
   }
   console.log(Movie)
 </script>
-
- 
