@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import App from '../components/posts.vue'
+import App from '../components/movies.vue'
 
 Vue.use(VueResource)
 

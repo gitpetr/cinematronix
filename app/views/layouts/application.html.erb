@@ -11,7 +11,9 @@
 
   <body>
     <div class="container">
-      <%= yield %>
+
+      <%= content_for :posts %>
+      <%= content_for :movies %>
     </div>
   </body>
 </html>

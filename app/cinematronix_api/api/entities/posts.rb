@@ -1,6 +1,6 @@
 module API
   module Entities
-    class Blogs < Grape::Entity
+    class Posts < Grape::Entity
       expose :id
       expose :title
       expose :body

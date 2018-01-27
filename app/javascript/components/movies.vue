@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <div class='container'>
-      <movie v-for="movie in movies"  :movie="movie" :key="movie.id"></movie>
+      <movie v-for="movie in resource"  :movie="movie" :key="movie.id"></movie>
     </div>
   </div>
 </template>
 
 <script>
   import Movie from '../components/movie.vue'
-  import MovieService from '../services/movie.service.js'
+  import MovieService from '../services/resource.service.js'
 
   export default {
     components: {Movie},
     data() {
       return {
-        movies: '',
+        resource: [],
         endpoint: 'http://localhost:3000/api/v1/movies'
       }
     },
