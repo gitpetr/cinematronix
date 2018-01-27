@@ -1,20 +1,20 @@
 <template>
   <div id="app">
     <div class='container'>
-      <blog v-for="blog in blogs"  :blog="blog" :key="blog.id"></blog>
+      <post v-for="post in posts"  :post="post" :key="post.id"></post>
     </div>
   </div>
 </template>
 
 <script>
-  import Blog from '../components/blog.vue'
+  import Post from '../components/post.vue'
   import BlogService from '../services/blog.service.js'
 
   export default {
-    components: {Blog},
+    components: {Post},
     data() {
       return {
-        blogs: '',
+        posts: '',
         endpoint: 'http://localhost:3000/api/v1/blogs'
       }
     },

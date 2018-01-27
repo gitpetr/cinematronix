@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>{{blog.title}} </h1>
-    <p>{{blog.body}} </p>
+    <h1>{{post.title}} </h1>
+    <p>{{post.body}} </p>
     <hr>
   </div>
 </template>
 
 <script>
-export default { props: ["blog"] }
+export default { props: ["post"] }
 </script>
 
 <style>
