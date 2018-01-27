@@ -1,7 +1,9 @@
-<% content_for :your_special_name_for_this_placeholder_you_can_call_it_packs_for_example do %>
-  <%= stylesheet_pack_tag 'posts.app.js', media: 'all' %>
-  <%= javascript_pack_tag 'posts.app' %>
-<% end %>
+ <div class="container" >
+  <% content_for :your_special_name_for_this_placeholder_you_can_call_it_packs_for_example do %>
+    <%= stylesheet_pack_tag 'posts', media: 'all' %>
+    <%= javascript_pack_tag 'posts' %>
+  <% end %>
+
 
 <h1>Posts</h1>
 <h2><%= link_to 'Add Post', new_admin_post_path %></h2>
@@ -21,3 +23,4 @@
 <% end %>
 
 </table>
+ </div>

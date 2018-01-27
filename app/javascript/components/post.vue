@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>{{post.title}} </h1>
     <p>{{post.body}} </p>
     <hr>
@@ -10,7 +10,7 @@
 export default { props: ["post"] }
 </script>
 
-<style>
+<style scoped>
 p {
   font-size: 1.1rem;
   color: gray;

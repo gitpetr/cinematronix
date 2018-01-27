@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :movies
+  resources :movies, only: [:index, :show]
+  resources :posts, only: [:index]
   root 'movies#index'
 end

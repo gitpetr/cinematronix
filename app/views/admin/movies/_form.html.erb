@@ -1,6 +1,12 @@
 <%= form_for [:admin, @movie], html: { multipart: true } do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_area :description %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </p>
   <%= f.file_field :image %>
   <%= f.submit 'ok' %>
 <% end %>

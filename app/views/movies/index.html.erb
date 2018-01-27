@@ -1,20 +1,8 @@
 <% content_for :your_special_name_for_this_placeholder_you_can_call_it_packs_for_example do %>
-  <%= stylesheet_pack_tag 'movies.app', media: 'all' %>
-  <%= javascript_pack_tag 'movies.app' %>
+  <%= stylesheet_pack_tag 'movies', media: 'all' %>
+  <%= javascript_pack_tag 'movies' %>
 <% end %>
 
 <h1>Movies</h1>
  
- <table>
-<% @movies.each do |movie| %>
-  <tr>
-    <td>
-      <%= link_to movie.title, movie_path(movie) %>
-    </td>
-    <td>
-      <%= movie.description %>
-    </td>
- 
-<% end %>
 
-</table>
