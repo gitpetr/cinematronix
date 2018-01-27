@@ -1,5 +1,5 @@
 module Admin
-  class PostsController < Admin::AdminController
+  class PostsController < AdminController
     before_action :load_model, only: %i[show edit update destroy]
 
     def index

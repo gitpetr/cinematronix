@@ -1,5 +1,5 @@
 module Admin
-  class MoviesController < Admin::AdminController
+  class MoviesController < AdminController
     before_action :load_model, only: %i[show edit update destroy]
 
     def index
