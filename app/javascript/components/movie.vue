@@ -1,5 +1,5 @@
 <template>
-  <a href="#" @click="viewDetailsClicked">
+  <a :href="movie_id" @click="viewDetailsClicked">
     <div class="onemovie">
       <img :src='movie.image' class="img-fluid clearfix center-block"/>
       <p>{{movie.title}} </p>
@@ -9,10 +9,10 @@
 
 <script>
 export default { 
-  props: ["movie"],
+  props: ["movie", "movie_id"],
   methods: {
       viewDetailsClicked(){
-          this.$emit("viewDetails",this.movie.id);
+          this.$emit("viewDetails",this.movie);
       }
   }
  }

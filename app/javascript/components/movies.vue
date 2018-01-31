@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class='container'>
-      <movie v-for="movie in movies"  :movie="movie" :key="movie.id" @viewDetails="viewDetails"></movie>
+      <movie v-for="movie in movies"  :movie="movie" :movie_id="movie_id" :key="movie.id" @viewDetails="viewDetails"></movie>
     </div>
   </div>
 </template>
@@ -14,15 +14,17 @@
     components: {Movie},
     data() {
       return {
-        movies: []
+        movies: [],
+        movie_id: ""
       }
     },
     methods: {
       getMovies() {
         MovieService.fetch(this)
       },
-      viewDetails(id) {
-        alert(id);
+      viewDetails(movie) {
+        this.movie_id = movie.id
+        alert(movie.description);
       }
     }, created() { this.getMovies() }
   }
