@@ -1,7 +1,15 @@
-<template></template>
+<template>
+  <div>
+  <p>
+    {{checktext}}
+  </p>
+  <p>{{moviedetail.title}} </p>
+</div>
+</template>
 
 <script type="text/javascript">
+import router from '../router/index'
   export default {
-    data: ""
+    props: ["moviedetail", "checktext"]
   }
 </script>
