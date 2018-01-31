@@ -1,11 +1,17 @@
 <template>
   <div id="app">
+
     <div class='container'>
-      <movie v-for="movie in movies" :movie="movie" :key="movie.id" @viewDetails="viewDetails"></movie>
+      <div class="row">
+        <div class="col-8">
+          <movie v-for="movie in movies" :movie="movie" :key="movie.id" @viewDetails="viewDetails"></movie>
+        </div>
+        <div class="col-4">
+          <detail :moviedetail="moviedetail"></detail>
+        </div>
+      </div>
     </div>
- 
-    <detail :moviedetail="moviedetail" :checktext="checktext"></detail>
-  </div>
+</div>
 </template>
 
 <script>
@@ -18,8 +24,7 @@
     data() {
       return {
         movies: [],
-        moviedetail: "",
-        checktext: "Проверочный текст"
+        moviedetail: ""
       }
     },
     methods: {
@@ -28,7 +33,6 @@
       },
       viewDetails(movie) {
         this.moviedetail = movie 
-        alert (this.moviedetail.description)
       }
     }, created() { this.getMovies() }
   }
