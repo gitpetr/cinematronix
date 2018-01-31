@@ -1,12 +1,21 @@
 <template>
-  <div class="onemovie">
-    <img :src='movie.image' class="img-fluid clearfix center-block"/>
-    <p>{{movie.title}} </p>
-  </div>
+  <a href="#" @click="viewDetailsClicked">
+    <div class="onemovie">
+      <img :src='movie.image' class="img-fluid clearfix center-block"/>
+      <p>{{movie.title}} </p>
+    </div>
+  </a>
 </template>
 
 <script>
-export default { props: ["movie"] }
+export default { 
+  props: ["movie"],
+  methods: {
+      viewDetailsClicked(){
+          this.$emit("viewDetails",this.movie.id);
+      }
+  }
+ }
 </script>
 
 <style scoped>

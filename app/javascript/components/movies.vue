@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class='container'>
-      <movie v-for="movie in movies"  :movie="movie" :key="movie.id"></movie>
+      <movie v-for="movie in movies"  :movie="movie" :key="movie.id" @viewDetails="viewDetails"></movie>
     </div>
   </div>
 </template>
@@ -20,6 +20,9 @@
     methods: {
       getMovies() {
         MovieService.fetch(this)
+      },
+      viewDetails(id) {
+        alert(id);
       }
     }, created() { this.getMovies() }
   }
