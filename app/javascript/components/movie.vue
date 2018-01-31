@@ -1,6 +1,6 @@
 <template>
   <div>
-  <a href="" @click="viewDetailsClicked">
+  <a href="" @click.prevent="viewDetailsClicked">
     <div class="onemovie">
       <img :src='movie.image' class="img-fluid clearfix center-block"/>
       <p>{{movie.title}} </p>
