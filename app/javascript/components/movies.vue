@@ -24,7 +24,7 @@
     data() {
       return {
         movies: [],
-        moviedetail: ""
+        moviedetail: Object
       }
     },
     methods: {
