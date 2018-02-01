@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
-import App from '../components/movies.vue'
-import router from '../router/index'
+import App from '../components/movie-app/router.vue'
+import router from '../router'
 
 Vue.use(VueResource)
 
