@@ -1,12 +1,19 @@
 <template>
-  <div class="onemovie">
-    <img :src='movie.image' class="img-fluid clearfix center-block"/>
-    <p>{{movie.title}} </p>
+  <div>
+    <router-link :to="'/movie/'+ movie.id">
+      <div class="onemovie">
+        <img :src='movie.image' class="img-fluid clearfix center-block"/>
+        <p>{{movie.title}} </p>
+      </div>
+
+    </router-link>
   </div>
 </template>
 
 <script>
-export default { props: ["movie"] }
+export default { 
+  props: ["movie"]
+}
 </script>
 
 <style scoped>

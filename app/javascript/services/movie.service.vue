@@ -1,16 +1,14 @@
 <script>
   export default {
-    data() {
-      endpoint: 'http://localhost:3000/api/v1/movies'
-    },
-    props: ["movies"],
     methods: {
-      fetch() {
+      fetch: function() {
+        let endpoint = 'http://localhost:3000/api/v1/movies';
+
         this.$http.get(endpoint).then(response => {
-          this.movies = response.body
+          return response.body
         }, response => {
           console.log('ошибка')
-        })
+        })  
       }
     }
   }

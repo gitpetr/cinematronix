@@ -7,6 +7,10 @@ module API
       expose(:image) do |movie|
         movie.image.url(:thumb)
       end
+
+      expose(:imagemedium) do |movie|
+        movie.image.url(:medium)
+      end
     end
   end
 end
