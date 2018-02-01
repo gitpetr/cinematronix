@@ -1,24 +1,19 @@
 <template>
   <div>
-  <a href="" @click.prevent="viewDetailsClicked">
-    <div class="onemovie">
-      <img :src='movie.image' class="img-fluid clearfix center-block"/>
-      <p>{{movie.title}} </p>
-    </div>
-  </a>
-   
+    <router-link :to="'/movie/'+ movie.id">
+      <div class="onemovie">
+        <img :src='movie.image' class="img-fluid clearfix center-block"/>
+        <p>{{movie.title}} </p>
+      </div>
+
+    </router-link>
   </div>
 </template>
 
 <script>
 export default { 
-  props: ["movie"],
-  methods: {
-      viewDetailsClicked(){
-          this.$emit("viewDetails",this.movie);
-      }
-  }
- }
+  props: ["movie"]
+}
 </script>
 
 <style scoped>
