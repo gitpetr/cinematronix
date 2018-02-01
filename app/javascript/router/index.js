@@ -1,31 +1,14 @@
 import Vue from 'vue'
-import Router from 'vue-router'
-import movies from '../components/movies.vue'
-import moviedetails from '../components/movie_details.vue'
+import VueRouter from 'vue-router'
+import Movies from '../components/movie-app/movie-list.vue'
+import MovieDetails from '../components/movie-app/movie-details.vue'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
-
-routes: [
-
-  {
-
-    path: '/',
-
-    name: 'movies',
-
-    component: movies
-
-  },
-  {
-    path: '/movies/show/',
-
-    name: 'moviedetails',
-
-    component: moviedetails
-  }
-
-]
-
+const routes = [
+  { path: '/movies', component: Movies },
+  { path: '/movie/:id', component: MovieDetails }
+ ]
+export default new VueRouter({
+  routes
 })
