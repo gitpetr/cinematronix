@@ -3,3 +3,35 @@
 <p><%= @movie.title %></p>
 <p><%= @movie.description %></p>
 <p><%= link_to 'Movies', movies_path %></p>
+
+<h2>Рецензии</h2>
+
+<div class="recensio">
+  <% @movie.recensios.each do |recensio| %>
+    <p>
+    <h3><%= recensio.critic_name %>(<%= recensio.critic_email %>):</h3>
+    <%= recensio.body %>
+    </p>
+  <% end %>
+</div>
+
+<h3>Ваша рецензия</h3>
+<div class="form">
+  <%= form_for [@movie, @recensio] do |f| %>
+    <p>
+      <%= f.label :critic_name, 'Ваше имя' %><br>
+      <%= f.text_field :critic_name %>
+    </p>
+
+    <p>
+      <%= f.label :critic_email, 'email' %><br>
+      <%= f.text_field :critic_email %>
+    </p>
+
+    <p>
+      <%= f.label :body, 'текст' %><br>
+      <%= f.text_area :body %>
+    </p>
+    <%= f.submit 'ok' %>
+  <% end %>
+</div>
