@@ -11,6 +11,8 @@ module API
       expose(:imagemedium) do |movie|
         movie.image.url(:medium)
       end
+
+      expose :recensios, using: API::Entities::Recensios
     end
   end
 end

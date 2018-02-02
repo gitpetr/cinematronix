@@ -10,6 +10,14 @@
         <p>{{movie.description}} </p>
       </div>
     </div>
+    <hr>
+    <div class="recensios" v-for="r in movie.recensios">
+      <h4>{{r.critic_name}}({{r.critic_email}})</h4>
+      <p>
+        {{r.body}}
+      </p>
+      <hr>
+    </div>
   </div>
 </template>
 
