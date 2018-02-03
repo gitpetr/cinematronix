@@ -8,6 +8,7 @@
       <div class="col-6">
         <h3>{{movie.title}}</h3>
         <p>{{movie.description}} </p>
+        <router-link :to="'/movie/' + movie.id + '/recensio/'">Оставить рецензию</router-link>
       </div>
     </div>
     <hr>

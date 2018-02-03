@@ -14,5 +14,10 @@ export default {
     }, response => {
       console.log('ошибка')
     })
+  },
+  postRecensio(self){
+    self.$http.post('http://localhost:3000/api/v1/recensios', {"recensio": self.recensio}).then((response) => {
+      console.log(response.message)
+    })
   }
 }
