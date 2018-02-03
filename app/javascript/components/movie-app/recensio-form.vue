@@ -17,13 +17,7 @@
           </div>
 
           <div class="form-group">
-            <router-link :to="'/movie/'+ recensio.movie_id">
-              <button v-on:click="postRecensio()" class="btn btn-primary">Отправить</button>
-            </router-link>
-
-            <router-link :to="'/movie/'+ recensio.movie_id">
-                <button class="btn btn-default">Вернуться</button>
-            </router-link>
+            <button v-on:click="postRecensio()" class="btn btn-default">Сохранить</button>
           </div>
 
         </form>
@@ -45,6 +39,7 @@
   import MovieService from '../../services/movies.service.js'
 
   export default {
+    props: ['movie_id'],
     data() {
       return {
         recensio: {
@@ -57,7 +52,7 @@
     },
     computed: {
         getMovieId() {
-          this.recensio.movie_id = this.$route.params.id
+          this.recensio.movie_id = this.movie_id
       }
     },
     methods: {

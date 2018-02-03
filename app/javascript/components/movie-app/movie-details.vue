@@ -11,8 +11,19 @@
         <router-link :to="'/movie/' + movie.id + '/recensio/'">Оставить рецензию</router-link>
       </div>
     </div>
+    <div class="container">
+      <h3>Оставить рецензию</h3>
+      <recensio-form :movie_id="movie.id" @recensio="pushRecensio"></recensio-form>
+    </div>
     <hr>
     <div class="recensios" v-for="r in movie.recensios">
+      <h4>{{r.critic_name}}({{r.critic_email}})</h4>
+      <p>
+        {{r.body}}
+      </p>
+      <hr>
+    </div>
+    <div class="recensios" v-for="r in recensios">
       <h4>{{r.critic_name}}({{r.critic_email}})</h4>
       <p>
         {{r.body}}
@@ -23,17 +34,24 @@
 </template>
 
 <script type="text/javascript">
+import RecensioForm from './recensio-form'
 import MovieService from '../../services/movies.service.js'
   export default {
+    components: {RecensioForm},
     data() {
       return {
-        movie: {}
+        movie: {},
+        recensios: [{critic_name: 'Vasya', critic_email: "Vasiliy", body: "Body Body"}],
+        newRecensio: Object
       }
     },
     methods: {
       getMovie() {
         MovieService.getById(this)
-      }
+      },
+        pushRecensio(recensio) {
+          this.recensios.push(recensio)
+        },
     }, created() { this.getMovie() }
   }
 </script>
