@@ -41,8 +41,7 @@ import MovieService from '../../services/movies.service.js'
     data() {
       return {
         movie: {},
-        recensios: [{critic_name: 'Vasya', critic_email: "Vasiliy", body: "Body Body"}],
-        newRecensio: Object
+        recensios: []
       }
     },
     methods: {
