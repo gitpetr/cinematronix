@@ -29,6 +29,7 @@ comandy.txt
 /public/packs
 /public/packs-test
 /node_modules
+zapros.json
 yarn-debug.log*
 yarn-error.log*
 .yarn-integrity

@@ -7,6 +7,7 @@ module API
       expose(:image) do |movie|
         movie.image.url(:medium)
       end
+      expose :recensios, using: API::Entities::Recensios, as: :recensios
     end
   end
 end

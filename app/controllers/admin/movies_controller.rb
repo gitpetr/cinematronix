@@ -7,6 +7,7 @@ module Admin
     end
 
     def show
+      @recensio = Recensio.new
     end
 
     def new
