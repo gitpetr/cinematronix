@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" v-if="showForm">
       <h3>Оставить рецензию</h3>
       <recensio-form :movie_id="movie.id" @recensio="unshiftRecensio"></recensio-form>
     </div>
@@ -31,6 +31,7 @@ import MovieService from '../../services/movies.service.js'
       return {
         movie: {},
         recensios: [],
+        showForm: true
       }
     },
     methods: {
@@ -39,6 +40,7 @@ import MovieService from '../../services/movies.service.js'
       },
         unshiftRecensio(recensio) {
           this.recensios.unshift(recensio)
+          this.showForm = false
         },
     }, created() { this.getMovie() }
   }
