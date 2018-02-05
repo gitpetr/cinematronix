@@ -8,7 +8,6 @@
       <div class="col-6">
         <h3>{{movie.title}}</h3>
         <p>{{movie.description}} </p>
-        <router-link :to="'/movie/' + movie.id + '/recensio/'">Оставить рецензию</router-link>
       </div>
     </div>
     <div class="container">
@@ -16,14 +15,15 @@
       <recensio-form :movie_id="movie.id" @recensio="pushRecensio"></recensio-form>
     </div>
     <hr>
-    <div class="recensios" v-for="r in movie.recensios">
+    <div class="recensios" v-for="r in recensios">
       <h4>{{r.critic_name}}({{r.critic_email}})</h4>
       <p>
         {{r.body}}
       </p>
       <hr>
     </div>
-    <div class="recensios" v-for="r in recensios">
+
+    <div class="recensios" v-for="r in movie.recensios">
       <h4>{{r.critic_name}}({{r.critic_email}})</h4>
       <p>
         {{r.body}}
@@ -41,8 +41,7 @@ import MovieService from '../../services/movies.service.js'
     data() {
       return {
         movie: {},
-        recensios: [{critic_name: 'Vasya', critic_email: "Vasiliy", body: "Body Body"}],
-        newRecensio: Object
+        recensios: [],
       }
     },
     methods: {

@@ -2,12 +2,13 @@
   <div class='container'>
     <div class="row">
       <div class="col-6">
-        <form :id="getMovieId">
+        <form>
           <div class="form-group">
             <label>Ваше имя</label>
             <input type="text" v-model="recensio.critic_name" placeholder="Представьтесь, пожалуйста!" class="form-control" /><br>
           </div>
           <div class="form-group">
+            <input type="hidden" v-model="recensio.movie_id = movie_id" />
             <label>Email</label>
             <input type="email" v-model="recensio.critic_email" placeholder="Ваша электронная почта" class="form-control" /><br>
           </div>
@@ -26,6 +27,7 @@
       <div class="col-6">
         <p>Имя: {{recensio.critic_name}}</p>
         <p>Email: {{recensio.critic_email}}</p>
+        <p>id: {{recensio.movie_id}}</p>
         <p>
           Рецензия:
           {{recensio.body}}
@@ -58,6 +60,7 @@
     methods: {
       postRecensio(){
         MovieService.postRecensio(this)
+        this.$emit("recensio", this.recensio)
       }
     }
   }

@@ -12,7 +12,7 @@ module API::V1
       route_param :id do
         get do
           recensio = Recensio.find(params[:id])
-          present recensio, with: API::Entities::Recensio
+          present recensio, with: API::Entities::Recensios
         end
       end
 
@@ -28,14 +28,14 @@ module API::V1
 
       post do
         recensio = Recensio.create(params[:recensio])
-        present recensio, with: API::Entities::Recensio
+        present recensio, with: API::Entities::Recensios
       end
 
       desc 'Update a recensio'
       patch ':id' do
         recensio = Recensio.find(params[:id])
         recensio.update(params[:recensio])
-        present recensio, with: API::Entities::Recensio
+        present recensio, with: API::Entities::Recensios
       end
 
       desc 'Delete a recensio'
