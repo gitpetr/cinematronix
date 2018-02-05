@@ -13,7 +13,7 @@
 
     <div class="container">
       <h3>Оставить рецензию</h3>
-      <recensio-form :movie_id="movie.id" @recensio="pushRecensio"></recensio-form>
+      <recensio-form :movie_id="movie.id" @recensio="unshiftRecensio"></recensio-form>
     </div>
     <hr>
 
@@ -37,8 +37,8 @@ import MovieService from '../../services/movies.service.js'
       getMovie() {
         MovieService.getById(this)
       },
-        pushRecensio(recensio) {
-          this.recensios.push(recensio)
+        unshiftRecensio(recensio) {
+          this.recensios.unshift(recensio)
         },
     }, created() { this.getMovie() }
   }
