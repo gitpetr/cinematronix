@@ -17,7 +17,7 @@ export default {
     })
   },
   postRecensio(self){
-    self.$http.post('http://localhost:3000/api/v1/recensios', {"recensio": self.recensio}).then((response) => {
+    self.$http.post(`http://localhost:3000/api/v1/movies/${self.movie_id}/recensios`, {"recensio": self.recensio}).then((response) => {
       console.log(response.message)
     })
   }
