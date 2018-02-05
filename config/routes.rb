@@ -16,6 +16,5 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:index]
-  resources :recensios
   root 'movies#index'
 end

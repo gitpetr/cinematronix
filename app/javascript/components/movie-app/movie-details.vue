@@ -10,34 +10,23 @@
         <p>{{movie.description}} </p>
       </div>
     </div>
+
     <div class="container">
       <h3>Оставить рецензию</h3>
       <recensio-form :movie_id="movie.id" @recensio="pushRecensio"></recensio-form>
     </div>
     <hr>
-    <div class="recensios" v-for="r in recensios">
-      <h4>{{r.critic_name}}({{r.critic_email}})</h4>
-      <p>
-        {{r.body}}
-      </p>
-      <hr>
-    </div>
 
-    <div class="recensios" v-for="r in movie.recensios">
-      <h4>{{r.critic_name}}({{r.critic_email}})</h4>
-      <p>
-        {{r.body}}
-      </p>
-      <hr>
-    </div>
+    <movie-recensios :recensios="recensios"></movie-recensios>
   </div>
 </template>
 
 <script type="text/javascript">
 import RecensioForm from './recensio-form'
+import MovieRecensios from './movie-recensios'
 import MovieService from '../../services/movies.service.js'
   export default {
-    components: {RecensioForm},
+    components: {RecensioForm, MovieRecensios},
     data() {
       return {
         movie: {},

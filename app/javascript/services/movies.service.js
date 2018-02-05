@@ -11,6 +11,7 @@ export default {
     const endpoint = 'http://localhost:3000/api/v1/movies'
     self.$http.get(endpoint).then(response => {
       self.movie = response.body.filter(movie => movie.id == self.$route.params.id)[0]
+      self.recensios = self.movie.recensios
     }, response => {
       console.log('ошибка')
     })

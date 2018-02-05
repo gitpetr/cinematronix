@@ -1,19 +1,24 @@
 <h1>Recensios</h1>
-<h2><%= link_to 'Add Recensio', new_recensio_path %></h2>
+<h2><%= link_to 'Add Recensio', new_admin_recensio_path %></h2>
  
  <table>
 <% @recensios.each do |recensio| %>
   <tr>
-    <td>
-      <%= link_to recensio.critic_name, admin_recensio_path(recensio) %>
-      <%= link_to recensio.critic_email, admin_recensio_path(recensio) %>
-    </td>
-    <td>
-      <%= recensio.body %>
-    </td>
-    <td><%= link_to 'edit', edit_admin_recensio_path(recensio) %></td>
-    <td><%= link_to 'delete', admin_recensio_path(recensio), method: :delete, data: { confirm: 'Действительно удалить?' } %></td>
+    <th>
+      <p>
+        <%= link_to recensio.critic_name, admin_recensio_path(recensio) %>
+        <%= link_to recensio.critic_email, admin_recensio_path(recensio) %>
+      </p>
+      <p>
+        <%= link_to 'Edit', edit_admin_recensio_path(recensio) %><br>
+        <%= link_to 'Delete', admin_recensio_path(recensio), method: :delete, data: { confirm: 'Действительно удалить?' } %>
+      </p>
+
+    </th>
+
+    <td><%= recensio.body %></td>
   </tr>
+
 <% end %>
 
 </table>
