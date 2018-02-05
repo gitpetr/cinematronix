@@ -27,7 +27,6 @@
       <div class="col-6">
         <p>Имя: {{recensio.critic_name}}</p>
         <p>Email: {{recensio.critic_email}}</p>
-        <p>id: {{recensio.movie_id}}</p>
         <p>
           Рецензия:
           {{recensio.body}}
@@ -50,11 +49,6 @@
           body: '',
           movie_id: ''
         }
-      }
-    },
-    computed: {
-        getMovieId() {
-          this.recensio.movie_id = this.movie_id
       }
     },
     methods: {
