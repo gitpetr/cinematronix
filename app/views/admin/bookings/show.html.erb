@@ -1,0 +1,5 @@
+<h1>Билет</h1>
+<% row, char = @booking.seat.split(':') %>
+<p>Дата: <%= @booking.movie_session.time %></p>
+<p>Ряд: <%= row %></p>
+<p>Место: <%= char %></p>

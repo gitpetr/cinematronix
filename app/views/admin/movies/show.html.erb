@@ -1,7 +1,22 @@
 <h1>Movie</h1>
-<p><%= image_tag @movie.image.url(:medium) unless @movie.image.file.nil? %></p>
-<p><%= @movie.title %></p>
-<p><%= @movie.description %></p>
+<div class="row">
+  <div class="col-8">
+    <p><%= image_tag @movie.image.url(:medium) unless @movie.image.file.nil? %></p>
+  </div>
+  <div class="col-4">
+    <h2><%= @movie.title %></h2>
+    <p><%= @movie.description %></p>
+    <h3>Сеансы</h3>
+    <p>
+      <% @movie.movie_sessions.each do |session| %>
+        <%= session.time %> |
+        <%= link_to 'Edit', edit_admin_movie_movie_session_path(@movie, session) %> |
+        <%= link_to 'Delete', admin_movie_movie_session_path(@movie, session), method: :delete, data: { confirm: 'Действительно удалить?' } %> |
+        <%= link_to 'Забронировать', new_admin_movie_movie_session_booking_path(@movie, session) %><br>
+      <% end %>
+    </p>
+  </div>
+</div>
 
 <h2>Рецензии</h2>
 

@@ -1,0 +1,55 @@
+<%= form_for [:admin, :movie, :movie_session, @booking], html: { multipart: true } do |f| %>
+
+
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2> Ошибок: <%= @booking.errors.count %> </h2>
+
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <p>
+    <%= f.label :movie_session, 'Сеанс' %><br>
+    <%#= f.collection_select(:movie_session_id, MovieSession.all, :id, :time) %>
+    <%= f.hidden_field :movie_session_id %><br>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %><br>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %><br>
+
+    <%= label_tag :seat, 'ряд' %><br>
+    <%= text_field_tag :row %><br>
+    <%= label_tag :char, 'место' %><br>
+    <%= text_field_tag :char %><br>
+  </p>
+  <%#= f.text_field :seat, value: row %><br>
+  <%= f.submit 'ok' %>
+<% end %>

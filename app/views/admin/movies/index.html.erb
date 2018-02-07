@@ -2,17 +2,23 @@
 <h2><%= link_to 'Add Movie', new_admin_movie_path %></h2>
  
  <table>
-<% @movies.each do |movie| %>
-  <tr>
-    <td>
-      <%= link_to movie.title, admin_movie_path(movie) %>
-    </td>
-    <td>
-      <%= movie.description %>
-    </td>
-    <td><%= link_to 'edit', edit_admin_movie_path(movie) %></td>
-    <td><%= link_to 'delete', [:admin, movie], method: :delete, data: { confirm: 'Действительно удалить?' } %></td>
-  </tr>
-<% end %>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td>
+        <%= link_to movie.title, admin_movie_path(movie) %>
+      </td>
 
+      <td><%= link_to 'edit', edit_admin_movie_path(movie) %></td>
+      <td><%= link_to 'delete', [:admin, movie], method: :delete, data: { confirm: 'Действительно удалить?' } %></td>
+      <td> | </td>
+      <td>
+        <% movie.movie_sessions.each do |session| %>
+          <%= session.time %> |
+          <%= link_to 'Edit', edit_admin_movie_movie_session_path(movie, session) %> |
+          <%= link_to 'Delete', admin_movie_movie_session_path(movie, session), method: :delete, data: { confirm: 'Действительно удалить?' } %><br>
+        <% end %>
+        <%= link_to 'Add Movie session', new_admin_movie_movie_session_path(movie) %>
+      </td>
+    </tr>
+  <% end %>
 </table>

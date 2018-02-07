@@ -1,14 +1,15 @@
 class Booking < ApplicationRecord
-  validates :name, :email, :phone, :date_time, presence: :true
-  validates :seat, uniqueness: { scope: :date_time,
-                                 message: "Место уже забронировано" }
+  belongs_to :movie_session
 
+  validates :name, :email, :phone, :seat, presence: :true
+  validates :seat, uniqueness: { message: "Место уже забронировано" }
   validate  :seat_exists?, on: :create
 
   private
 
   def seat_exists?
-    zal ||= ZalSchema.new.seatnum
-    self.errors.add(:seat, 'Вы указали несуществующее место') unless zal.include?(self.seat)
+    @hall ||= Hall.new.blue_hall
+    @row, @seat =  self.seat.split(':')
+    self.errors.add(:seat, 'Вы указали несуществующее место') unless (1..@hall[:rows]).cover?(@row.to_i) && (1..@hall[:seats]).cover?(@seat.to_i)
   end
 end

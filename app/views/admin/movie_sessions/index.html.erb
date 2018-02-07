@@ -1,0 +1,23 @@
+<h1>Movie sessions</h1>
+<h2><%= link_to 'Add Movie session', new_admin_movie_movie_session_path %></h2>
+ 
+ <table>
+<% @movie_sessions.each do |movie_session| %>
+  <tr>
+    <th>
+      <p>
+        <%= link_to movie_session.time, admin_movie_movie_session_path(@movie_sessions, movie_session) %>
+      </p>
+      <p>
+        <%= link_to 'Edit', edit_admin_movie_movie_session_path(@movie_sessions, movie_session) %><br>
+        <%= link_to 'Delete', admin_movie_movie_session_path(@movie_sessions, movie_session), method: :delete, data: { confirm: 'Действительно удалить?' } %>
+      </p>
+
+    </th>
+
+  </tr>
+
+<% end %>
+
+</table>
+ </div>

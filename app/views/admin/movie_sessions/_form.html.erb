@@ -1,0 +1,8 @@
+<%= form_for [:admin, :movie, @movie_session], html: { multipart: true } do |f| %>
+  <p>
+    <%= f.label :time, 'Дата и время сеанса' %><br>
+    <%= f.datetime_select :time, id: :movie_session_time %>
+  </p>
+
+  <%= f.submit 'ok' %>
+<% end %>
