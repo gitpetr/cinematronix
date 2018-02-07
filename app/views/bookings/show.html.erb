@@ -1,5 +1,10 @@
-<h1>Билет</h1>
+<h1>Фильм: <%= @booking.movie_session.movie.title %></h1>
 <% row, char = @booking.seat.split(':') %>
+
+<h3>Зритель: <%= @booking.name %></h3>
+<p>Email: <%= @booking.email %></p>
+<p>Телефон:<%= @booking.phone %></p>
+<hr>
 <p>Дата: <%= @booking.movie_session.time %></p>
 <p>Ряд: <%= row %></p>
 <p>Место: <%= char %></p>
