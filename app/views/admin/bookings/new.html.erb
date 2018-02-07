@@ -1,2 +1,4 @@
-<h1>New</h1>
+<h1>Забронировать билет</h1>
+<h3>фильм: <%= @booking.movie_session.movie.title %></h3>
+<p>Дата: <%= @booking.movie_session.time.strftime("%m-%d-%Y %H:%M") %></p>
 <%= render 'form' %>
