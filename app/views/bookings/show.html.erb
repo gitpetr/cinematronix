@@ -5,6 +5,6 @@
 <p>Email: <%= @booking.email %></p>
 <p>Телефон:<%= @booking.phone %></p>
 <hr>
-<p>Дата: <%= @booking.movie_session.time %></p>
+<p>Дата: <%= @booking.movie_session.time.strftime("%m-%d-%Y %H:%M") %></p>
 <p>Ряд: <%= row %></p>
 <p>Место: <%= char %></p>
