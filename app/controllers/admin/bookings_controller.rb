@@ -10,7 +10,7 @@ module Admin
       @booking = Booking.new(booking_params)
       @booking.seat = params[:row].strip + ':' + params[:char].strip
       if @booking.save
-        redirect_to @booking
+        redirect_to [:admin, @booking.movie_session.movie, @booking.movie_session, @booking]
       else
         render :edit
       end
