@@ -4,11 +4,13 @@ module Admin
 
     def new
       @booking = Booking.new(movie_session_id: params[:movie_session_id])
+      @hall = Halls::BLUE
     end
 
     def create
       @booking = Booking.new(booking_params)
       @booking.seat = params[:row].strip + ':' + params[:char].strip
+      @hall = Halls::BLUE
       if @booking.save
         redirect_to [:admin, @booking.movie_session.movie, @booking.movie_session, @booking]
       else
