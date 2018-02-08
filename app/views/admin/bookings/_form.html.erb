@@ -33,10 +33,10 @@
   <div class="col-8">
     <h3>Схема зала</h3>
     <table class="hall">
-        <% Hall.new.blue_hall[:rows].times do |row| %>
+        <% Halls::BLUE[:rows].times do |row| %>
             <tr>
               <td class="row"><%= row + 1 %> ряд</td>
-              <% Hall.new.blue_hall[:seats].times do |seat| %>
+              <% Halls::BLUE[:seats].times do |seat| %>
                 <td class=" <%= 'block' if @booking.movie_session.bookings.map {|booking| booking[:seat] }.include?((row + 1).to_s + ':' + (seat + 1).to_s) %>"><%= seat + 1 %></td>
               <% end %>
             </tr>

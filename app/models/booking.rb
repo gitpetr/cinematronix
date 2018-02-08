@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   private
 
   def seat_exists?
-    @hall ||= Hall.new.blue_hall
+    @hall ||= Halls::BLUE
     @row, @seat =  self.seat.split(':')
     self.errors.add(:seat, 'Вы указали несуществующее место') unless (@row.to_i > 0 && @row.to_i <= @hall[:rows]) && (@seat.to_i > 0 && @seat.to_i <= @hall[:seats])
   end
