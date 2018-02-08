@@ -11,8 +11,11 @@
       </div>
     </div>
 
+    <p>
+      <br><button v-on:click.once="showForm = true">Оставить рецензию</button>
+    </p>
     <div class="container" v-if="showForm">
-      <h3>Оставить рецензию</h3>
+
       <recensio-form :movie_id="movie.id" @recensio="unshiftRecensio"></recensio-form>
     </div>
     <hr>
@@ -31,7 +34,7 @@ import MovieService from '../../services/movies.service.js'
       return {
         movie: {},
         recensios: [],
-        showForm: true
+        showForm: false
       }
     },
     methods: {
