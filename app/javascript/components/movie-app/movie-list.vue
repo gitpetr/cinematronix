@@ -9,7 +9,7 @@
 
 <script>
   import MovieItem from './movie-item.vue'
-  import MovieService from '../../services/movies.service.js'
+  import MovieService from '../../services/movie_service.js'
 
   export default {
     components: {MovieItem},
@@ -20,8 +20,10 @@
     },
     methods: {
       getMovies() {
-        MovieService.fetch(this)
-      } 
-    }, created() { this.getMovies() }
+        this.movies = MovieService.movies
+      }
+    }, created() {
+      this.getMovies()
+    }
   }
 </script>
