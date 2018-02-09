@@ -8,6 +8,12 @@
       <div class="col-6">
         <h3>{{movie.title}}</h3>
         <p>{{movie.description}} </p>
+        <h3>Сеансы</h3>
+        <p v-for="session in movie.movie_sessions">
+          <router-link :to="'/' + session.id + '/booking/new'">
+            {{session.time}}
+          </router-link>
+        </p>
       </div>
     </div>
 

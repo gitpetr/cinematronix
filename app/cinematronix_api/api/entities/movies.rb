@@ -13,6 +13,7 @@ module API
       end
 
       expose :recensios, using: API::Entities::Recensios
+      expose :movie_sessions, using: API::Entities::MovieSessions
     end
   end
 end
