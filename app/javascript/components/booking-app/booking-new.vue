@@ -1,13 +1,12 @@
 <template>
   <div class='container'>
     <h3>Забронировать билет</h3>
-    <p>{{movie_session_id}}</p>
     <booking-form :movie_session_id="movie_session_id"></booking-form>
   </div>
 </template>
 
 <script>
-  import BookingForm from '../../components/booking-app/booking-form'
+  import BookingForm from './booking-form.vue'
   import MovieService from '../../services/movies.service.js'
 
   export default {
