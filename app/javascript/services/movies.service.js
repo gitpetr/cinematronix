@@ -36,5 +36,19 @@ export default {
     self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
       console.log(response.message)
     })
+  },
+  getBooking(self) {
+    const endpoint = 'http://localhost:3000/api/v1/bookings'
+    self.$http.get(endpoint).then(response => {
+      self.myBooking = response.body.pop()
+    })
+  },
+  getBookingByID(self) {
+    const endpoint = 'http://localhost:3000/api/v1/bookings'
+    self.$http.get(endpoint).then(response => {
+      self.booking = response.body.filter(booking => booking.id == self.$route.params.id)[0]
+    }, response => {
+      console.log('ошибка')
+    })
   }
 }

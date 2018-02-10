@@ -17,22 +17,23 @@
         <input type="text" v-model="booking.phone" id="phone"><br/>
       </div>
       <div class="form-group">
+        <label for="row">Ряд</label><br/>
+        <input type="text" v-model="booking.row" id="row"/>
+      </div>
+      <div class="form-group">
         <label for="char">Место</label><br/>
         <input type="text" v-model="booking.char" id="char"/><br/>
       </div>
       <div class="form-group">
-        <label for="row">Ряд</label><br/>
-        <input type="text" v-model="booking.row" id="row"/>
-      </div>
-        <div class="form-group">
-          <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
+        <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
       </div>
     </form>
-      <p>{{booking.name}}</p>
-      <p>{{booking.seat}}</p>
-      <p>{{booking.movie_session_id}}</p>
+    <div>
+      <router-link :to="'/booking/'+ myBooking.id">
+        <button>Посмотреть</button>
+      </router-link>
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -49,7 +50,8 @@
           row: '',
           char: '',
           seat: ''
-        }
+        },
+        myBooking: Object
       }
     },
     computed: {
@@ -58,8 +60,12 @@
       }
     },
     methods: {
-      postBooking(){
+      postBooking() {
         MovieService.postBooking(this)
+        this.getBooking()
+      },
+      getBooking() {
+        MovieService.getBooking(this)
       }
     }
   }
