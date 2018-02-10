@@ -34,13 +34,7 @@ export default {
     }
 
     self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
-      console.log(response.message)
-    })
-  },
-  getBooking(self) {
-    const endpoint = 'http://localhost:3000/api/v1/bookings'
-    self.$http.get(endpoint).then(response => {
-      self.myBooking = response.body.pop()
+      self.id = response.body.id
     })
   },
   getBookingByID(self) {

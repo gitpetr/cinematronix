@@ -29,7 +29,7 @@
       </div>
     </form>
     <div>
-      <router-link :to="'/booking/'+ myBooking.id">
+      <router-link :to="'/booking/'+ id">
         <button>Посмотреть</button>
       </router-link>
     </div>
@@ -51,7 +51,7 @@
           char: '',
           seat: ''
         },
-        myBooking: Object
+        id: Number
       }
     },
     computed: {
@@ -62,10 +62,6 @@
     methods: {
       postBooking() {
         MovieService.postBooking(this)
-        this.getBooking()
-      },
-      getBooking() {
-        MovieService.getBooking(this)
       }
     }
   }
