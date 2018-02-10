@@ -1,55 +1,65 @@
 <template>
   <div>
     <form>
-      <input type="hidden" v-model="movie_session_id"/>
-      <input type="hidden" v-model="seat=comp_seat"/>
+      <input type="hidden" v-model="booking.movie_session_id = movie_session_id"/>
+      <input type="hidden" v-model="booking.seat = comp_seat"/>
 
       <div class="form-group">
         <label for="name">ФИО</label><br/>
-        <input type="text" v-model="name" id="name"><br/>
+        <input type="text" v-model="booking.name" id="name"><br/>
       </div>
       <div class="form-group">
         <label for="email">Email</label><br/>
-        <input type="email" v-model="email" id="email"><br/>
+        <input type="email" v-model="booking.email" id="email"><br/>
       </div>
       <div class="form-group">
         <label for="phone">Телефон</label><br/>
-        <input type="text" v-model="phone" id="phone"><br/>
+        <input type="text" v-model="booking.phone" id="phone"><br/>
       </div>
       <div class="form-group">
         <label for="char">Место</label><br/>
-        <input type="text" v-model="char" id="char"/><br/>
+        <input type="text" v-model="booking.char" id="char"/><br/>
       </div>
       <div class="form-group">
         <label for="row">Ряд</label><br/>
-        <input type="text" v-model="row" id="row"/>
+        <input type="text" v-model="booking.row" id="row"/>
       </div>
         <div class="form-group">
-        <input type="submit" value='ok'/>
+          <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
       </div>
     </form>
-      <p>{{seat}}</p>
+      <p>{{booking.name}}</p>
+      <p>{{booking.seat}}</p>
+      <p>{{booking.movie_session_id}}</p>
   </div>
 
 </template>
 
 <script>
+  import MovieService from '../../services/movies.service.js'
   export default {
     props: ["movie_session_id"],
     data() {
       return {
-        movie_session_id: '',
-        name: '',
-        email: '',
-        phone: '',
-        row: '',
-        char: '',
-        seat: ''
+        booking: {
+          movie_session_id: '',
+          name: '',
+          email: '',
+          phone: '',
+          row: '',
+          char: '',
+          seat: ''
+        }
       }
     },
     computed: {
       comp_seat: function() {
-        return (this.char + ':' + this.row)
+        return (this.booking.char + ':' + this.booking.row)
+      }
+    },
+    methods: {
+      postBooking(){
+        MovieService.postBooking(this)
       }
     }
   }

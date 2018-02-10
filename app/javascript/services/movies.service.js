@@ -19,8 +19,21 @@ export default {
   getSessionById(self) {
     self.movie_session_id = self.$route.params.movie_session_id
   },
-  postRecensio(self){
+  postRecensio(self) {
     self.$http.post(`http://localhost:3000/api/v1/movies/${self.movie_id}/recensios`, {"recensio": self.recensio}).then((response) => {
+      console.log(response.message)
+    })
+  },
+  postBooking(self) {
+    const booking = {
+      name: self.booking.name,
+      email: self.booking.email,
+      phone: self.booking.phone,
+      seat: self.booking.seat,
+      movie_session_id: self.booking.movie_session_id
+    }
+
+    self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
       console.log(response.message)
     })
   }
