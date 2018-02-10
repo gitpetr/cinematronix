@@ -1,12 +1,13 @@
 <template>
   <div class='container'>
     <h1>Билет</h1>
-    <div></div>
-    <p>Имя: {{booking.name}}</p>
-    <p>{{booking.email}}</p>
-    <p>{{booking.phone}}</p>
-    <p>Ряд: {{row}}</p>
-    <p>Место: {{char}}</p>
+    <div>
+      <p>Имя: {{booking.name}}</p>
+      <p>{{booking.email}}</p>
+      <p>{{booking.phone}}</p>
+      <p>Ряд: {{row}}</p>
+      <p>Место: {{char}}</p>
+    </div>
   </div>
 </template>
 
@@ -27,10 +28,10 @@
     },
     computed: {
       row() {
-        return this.booking.seat.split(':')[1]
+        return this.booking.seat.split(':')[0]
       },
       char() {
-        return this.booking.seat.split(':')[0]
+        return this.booking.seat.split(':')[1]
       }
     }
   }
