@@ -23,9 +23,13 @@ table.hall {
   }
   td.row {
     width: 100px;
-    margin-left: -100px
+    margin-left: -100px;
   }
   td.block {
     background-color: #666666;
   }
+}
+
+td.seat {
+  background-image: url(image_path('char.png'));
 }

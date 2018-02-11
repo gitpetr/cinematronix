@@ -44,5 +44,20 @@ export default {
     }, response => {
       console.log('ошибка')
     })
+  },
+  createHall(self) {
+    var Hall = {
+          rows: [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35]
+        },
+        HallMap = '<tr/>';
+    $.each(Hall.rows, function(row, numberOfSeats) {
+      var HallRow = '';
+      for (var i = 1; i <= numberOfSeats; i++) {
+        HallRow += '<td class="' + (row + 1) + ':' + i +  ' seat">' +
+            i + '</td>';
+      }
+      HallMap += HallRow + '<td class="num-row">'+ (row + 1) + 'ряд' +'</td>' + '</tr>';
+    });
+    self.hallmap = HallMap
   }
 }

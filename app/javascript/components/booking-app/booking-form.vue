@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="zall">
+      <h3>Схема зала</h3>
+      <table class="zall" v-html="hallmap"></table>
+    </div>
+
     <div v-if="showForm">
       <form>
         <input type="hidden" v-model="booking.movie_session_id = movie_session_id"/>
@@ -62,7 +67,8 @@
           seat: ''
         },
         id: Number,
-        showForm: true
+        showForm: true,
+        hallmap: ''
       }
     },
     computed: {
@@ -74,9 +80,30 @@
       postBooking() {
         MovieService.postBooking(this)
         this.showForm = false
+      },
+      createHall() {
+        MovieService.createHall(this)
       }
+    }, created() {
+      this.createHall()
     }
   }
 </script>
 
-
+<style>
+.zall tr {
+  background-color: #F7FFDB;
+}
+td.seat {
+  background-size: 25px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  height: 35px;
+  width: 25px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  font: 12px bold;
+}
+</style>
