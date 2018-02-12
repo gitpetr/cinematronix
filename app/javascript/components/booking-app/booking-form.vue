@@ -3,6 +3,8 @@
     <div class="zall">
       <h3>Схема зала</h3>
       <table class="zall" v-html="hallmap"></table>
+      <h4>Забронированные места</h4>
+      <span v-for="seat in bookingseats">{{seat}} </span>
     </div>
 
     <div v-if="showForm">
@@ -68,7 +70,8 @@
         },
         id: Number,
         showForm: true,
-        hallmap: ''
+        hallmap: '',
+        bookingseats: []
       }
     },
     computed: {
@@ -77,6 +80,9 @@
       }
     },
     methods: {
+      bookingSeats() {
+        MovieService.bookingSeats(this)
+      },
       postBooking() {
         MovieService.postBooking(this)
         this.showForm = false
@@ -85,6 +91,7 @@
         MovieService.createHall(this)
       }
     }, created() {
+      this.bookingSeats()
       this.createHall()
     }
   }

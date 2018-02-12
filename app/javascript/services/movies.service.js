@@ -24,6 +24,19 @@ export default {
       console.log(response.message)
     })
   },
+  bookingSeats(self) {
+    const movie_session_id = self.$route.params.movie_session_id
+    const endpoint = `http://localhost:3000/api/v1/moviesession/${movie_session_id}`
+    self.$http.get(endpoint).then(response => {
+      let seats = response.body.bookings.map(function(booking) {
+        return booking.seat;
+      });
+      self.bookingseats = seats
+      console.log(seats)
+    }, response => {
+      console.log('ошибка')
+    })
+  },
   postBooking(self) {
     const booking = {
       name: self.booking.name,

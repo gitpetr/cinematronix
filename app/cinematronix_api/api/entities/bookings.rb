@@ -7,6 +7,7 @@ module API
       expose :phone
       expose :seat
       expose :movie_session_id
+      expose :movie_session, using: API::Entities::MovieSessions
     end
   end
 end
