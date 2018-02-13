@@ -4,7 +4,7 @@
 
     <table class="hall">
       <tr v-for="nRow in hallrows">
-        <td class="seat" v-bind:class="{block: isBooking}" v-for="nSeat in hallseats">{{nSeat}}</td>
+        <td class="seat" v-bind:class="{block: isBooking(nRow+':'+nSeat)}" v-for="nSeat in hallseats">{{nSeat}}</td>
         <td>{{nRow}} Ряд</td>
       </tr>
     </table>
@@ -25,10 +25,6 @@
       }
     },
     computed: {
-        isBooking() {
-            // return true if bookseats.includes(`${nRow}:${nSeat}`)
-            return false
-        }
     },
     methods: {
       hall() {
@@ -47,7 +43,13 @@
         }, response => {
           console.log('ошибка')
         });
-      }
+      },
+      isBooking(place) {
+            if (this.bookseats.includes(place)) {
+              return true
+            }
+            return false
+        }
     },  created() {
           this.hall() 
       }
@@ -55,5 +57,4 @@
 </script>
 
 <style lang="sass">
- 
 </style>
