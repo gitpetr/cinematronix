@@ -12,6 +12,7 @@ module API::V1
       route_param :id do
         get do
           booking = Booking.find(params[:id])
+
           present booking, with: API::Entities::Bookings
         end
       end

@@ -33,11 +33,14 @@
   <div class="col-8">
     <h3>Схема зала</h3>
     <table class="hall">
+        <% bookings = @booking.movie_session.bookings %>
         <% @hall[:rows].times do |row| %>
             <tr>
               <td class="row"><%= row + 1 %> ряд</td>
               <% @hall[:seats].times do |seat| %>
-                <td class=" <%= 'block' if @booking.movie_session.bookings.map {|booking| booking[:seat] }.include?((row + 1).to_s + ':' + (seat + 1).to_s) %>"><%= seat + 1 %></td>
+                <td class="seat <%= 'block' if bookings.map {|booking| booking[:seat] }.include?("#{row + 1}:#{seat + 1}") %>">
+                  <%= seat + 1 %>
+                </td>
               <% end %>
             </tr>
         <% end %>

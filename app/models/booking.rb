@@ -5,6 +5,10 @@ class Booking < ApplicationRecord
   validates :seat, uniqueness: { scope: :movie_session, message: "Место уже забронировано" }
   validate  :seat_exists?, on: :create
 
+  def hall
+    @hall ||= Halls::BLUE
+  end
+
   private
 
   def seat_exists?

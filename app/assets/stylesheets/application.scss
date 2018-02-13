@@ -16,20 +16,26 @@ body {
   color: #292C33;
 }
 table.hall {
-  border: solid 1px black;
-  td {
-    border: solid 1px black;
-    padding: 4px;
-  }
+  margin-left: -100px;
   td.row {
-    width: 100px;
-    margin-left: -100px;
+    width: 70px;
   }
-  td.block {
-    background-color: #666666;
-  }
-}
 
-td.seat {
-  background-image: url(image_path('char.png'));
+    td.seat {
+    background-image: url(image_path('char.png'));
+    background-size: 25px 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    min-width: 25px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font: 12px bold;
+  }
+    td.block {
+    background-color: #666666;
+    background-image: none;
+  }
 }

@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div class="zall">
-      <h3>Схема зала</h3>
-      <table class="zall" v-html="hallmap"></table>
-      <h4>Забронированные места</h4>
-      <span v-for="seat in bookingseats">{{seat}} </span>
+    <div class="hall">
+      <hall></hall>
     </div>
 
     <div v-if="showForm">
@@ -55,7 +52,9 @@
 
 <script>
   import MovieService from '../../services/movies.service.js'
+  import Hall from './booking-hall'
   export default {
+    components: {Hall},
     props: ["movie_session_id"],
     data() {
       return {
@@ -70,8 +69,7 @@
         },
         id: Number,
         showForm: true,
-        hallmap: '',
-        bookingseats: []
+        hallmap: ''
       }
     },
     computed: {
@@ -80,37 +78,15 @@
       }
     },
     methods: {
-      bookingSeats() {
-        MovieService.bookingSeats(this)
-      },
       postBooking() {
         MovieService.postBooking(this)
         this.showForm = false
-      },
-      createHall() {
-        MovieService.createHall(this)
-      }
-    }, created() {
-      this.bookingSeats()
-      this.createHall()
-    }
+      } 
+    } 
   }
 </script>
 
-<style>
-.zall tr {
-  background-color: #F7FFDB;
-}
-td.seat {
-  background-size: 25px 40px;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: #fff;
-  text-align: center;
-  height: 35px;
-  width: 25px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  font: 12px bold;
-}
+<style lang="sass">
+.hall tr 
+  background-color: #F7FFDB
 </style>
