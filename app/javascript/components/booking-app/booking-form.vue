@@ -1,51 +1,54 @@
 <template>
-  <div>
-    <div class="hall">
-      <hall></hall>
-    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div v-if="showForm">
+          <form>
+            <input type="hidden" v-model="booking.movie_session_id = movie_session_id"/>
 
-    <div v-if="showForm">
-      <form>
-        <input type="hidden" v-model="booking.movie_session_id = movie_session_id"/>
-        <input type="hidden" v-model="booking.seat = comp_seat"/>
+            <div class="form-group">
+              <label for="name">ФИО</label><br/>
+              <input type="text" v-model="booking.name" id="name"><br/>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label><br/>
+              <input type="email" v-model="booking.email" id="email"><br/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Телефон</label><br/>
+              <input type="text" v-model="booking.phone" id="phone"><br/>
+            </div>
+            <div class="form-group">
+              <p>Ряд: {{booking.row}}</p>
+            </div>
+            <div class="form-group">
+              <p>Место: {{booking.char}}</p>
+            </div>
+            <div class="form-group">
+              <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
+            </div>
+          </form>
+        </div>  
 
-        <div class="form-group">
-          <label for="name">ФИО</label><br/>
-          <input type="text" v-model="booking.name" id="name"><br/>
+        <div v-else>
+          <div>
+            <p>Имя: {{booking.name}}</p>
+            <p>{{booking.email}}</p>
+            <p>{{booking.phone}}</p>
+            <p>Ряд: {{booking.row}}</p>
+            <p>Место: {{booking.char}}</p>
+          </div>
+          <router-link :to="'/booking/'+ id">
+            <button>распечатать</button>
+          </router-link>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label><br/>
-          <input type="email" v-model="booking.email" id="email"><br/>
-        </div>
-        <div class="form-group">
-          <label for="phone">Телефон</label><br/>
-          <input type="text" v-model="booking.phone" id="phone"><br/>
-        </div>
-        <div class="form-group">
-          <label for="row">Ряд</label><br/>
-          <input type="text" v-model="booking.row" id="row"/>
-        </div>
-        <div class="form-group">
-          <label for="char">Место</label><br/>
-          <input type="text" v-model="booking.char" id="char"/><br/>
-        </div>
-        <div class="form-group">
-          <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
-        </div>
-      </form>
-    </div>
-
-    <div v-else>
-      <div>
-        <p>Имя: {{booking.name}}</p>
-        <p>{{booking.email}}</p>
-        <p>{{booking.phone}}</p>
-        <p>Ряд: {{booking.row}}</p>
-        <p>Место: {{booking.char}}</p>
       </div>
-      <router-link :to="'/booking/'+ id">
-        <button>распечатать</button>
-      </router-link>
+
+      <div class="col-9">
+        <div class="hall">
+          <hall @setPlace="setPlace"></hall>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,16 +75,16 @@
         hallmap: ''
       }
     },
-    computed: {
-      comp_seat: function() {
-        return (this.booking.row + ':' + this.booking.char)
-      }
-    },
     methods: {
       postBooking() {
         MovieService.postBooking(this)
         this.showForm = false
-      } 
+      },
+      setPlace(place) {
+        this.booking.seat = place
+        this.booking.row = place.split(':')[0]
+        this.booking.char = place.split(':')[1]
+      }
     } 
   }
 </script>

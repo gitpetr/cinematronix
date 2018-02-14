@@ -16,12 +16,12 @@ body {
   color: #292C33;
 }
 table.hall {
-  margin-left: -100px;
-  td.row {
-    width: 70px;
+  margin-left: -30px;
+  td.nrow {
+    min-width: 60px;
   }
 
-    td.seat {
+  td.seat {
     background-image: url(image_path('char.png'));
     background-size: 25px 40px;
     background-repeat: no-repeat;
@@ -29,13 +29,13 @@ table.hall {
     color: #fff;
     text-align: center;
     height: 40px;
-    min-width: 25px;
+    min-width: 23px;
     margin-right: 5px;
     margin-bottom: 5px;
     font: 12px bold;
   }
-    td.block {
-    background-color: #666666;
+  td.block {
+    background-color: #F7FFDB;
     background-image: none;
   }
 }
