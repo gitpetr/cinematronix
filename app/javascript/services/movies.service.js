@@ -25,14 +25,15 @@ export default {
     })
   },
   postBooking(self) {
-    const booking = {
+    let booking = {
       name: self.booking.name,
       email: self.booking.email,
       phone: self.booking.phone,
       seat: self.booking.seat,
       movie_session_id: self.booking.movie_session_id
     }
-
+    const seats = self.booking.seats
+    console.log(seats)
     self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
       self.id = response.body.id
     })

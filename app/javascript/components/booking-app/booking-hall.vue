@@ -5,7 +5,7 @@
     <table class="hall">
       <tr v-for="nRow in hallrows">
         <td class="nrow">{{nRow}} Ряд</td>
-        <td class="seat" @click="toBay(nRow+':'+nSeat)" onclick="this.setAttribute('class', 'clicked');" v-bind:class="{block: isBooking(nRow+':'+nSeat)}" v-for="nSeat in hallseats">{{nSeat}}</td>
+        <td class="seat" @click="toBay(nRow+':'+nSeat, $event)" v-bind:class="{block: isBooking(nRow+':'+nSeat)}" v-for="nSeat in hallseats">{{nSeat}}</td>
       </tr>
     </table>
 
@@ -50,8 +50,9 @@
             }
             return false
         },
-      toBay(place) {
+      toBay(place, event) {
         this.$emit("setPlace", place)
+        event.target.setAttribute('class', 'clicked')
       }
     },  created() {
           this.hall() 

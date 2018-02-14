@@ -68,7 +68,8 @@
           phone: '',
           row: '',
           char: '',
-          seat: ''
+          seat: '',
+          seats: []
         },
         id: Number,
         showForm: true,
@@ -84,6 +85,7 @@
         this.booking.seat = place
         this.booking.row = place.split(':')[0]
         this.booking.char = place.split(':')[1]
+        this.booking.seats.push(this.booking.seat)
       }
     } 
   }
