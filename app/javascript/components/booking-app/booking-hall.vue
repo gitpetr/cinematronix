@@ -1,21 +1,25 @@
 <template>
   <div>
     <h3>Схема зала</h3>
-
     <table class="hall">
       <tr v-for="nRow in hallrows">
         <td class="nrow">{{nRow}} Ряд</td>
-        <td class="seat" @click="toBay(nRow+':'+nSeat, $event)" v-bind:class="{block: isBooking(nRow+':'+nSeat)}" v-for="nSeat in hallseats">{{nSeat}}</td>
+        <char v-bind:nRow="nRow"
+              v-bind:hallseats="hallseats"
+              v-bind:bookseats="bookseats"
+              @setPlace="setPlace">
+        </char>
       </tr>
     </table>
-
   </div>
 </template>
 
 <script>
   import MovieService from '../../services/movies.service.js'
+  import Char from './booking-char'
 
   export default {
+    components: {Char},
     data() {
       return {
         hallrows: Number,
@@ -23,8 +27,6 @@
         bookseats: [],
         block: true
       }
-    },
-    computed: {
     },
     methods: {
       hall() {
@@ -44,18 +46,11 @@
           console.log('ошибка')
         });
       },
-      isBooking(place) {
-            if (this.bookseats.includes(place)) {
-              return true
-            }
-            return false
-        },
-      toBay(place, event) {
+      setPlace(place) {
         this.$emit("setPlace", place)
-        event.target.setAttribute('class', 'clicked')
       }
     },  created() {
-          this.hall() 
+          this.hall()
       }
   }
 </script>

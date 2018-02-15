@@ -46,7 +46,7 @@ export default {
       const booking = response.body
       self.booking = booking.filter(booking => booking.id == self.$route.params.id)[0]
       const bookingOne = self.booking
-      const bookingAll = booking.filter(booking => booking.email == bookingOne.email )
+      const bookingAll = booking.filter(booking => booking.email == bookingOne.email)
       for (let book of bookingAll) {
         self.places.push(book.seat)
       }
