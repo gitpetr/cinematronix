@@ -29,19 +29,27 @@ export default {
       name: self.booking.name,
       email: self.booking.email,
       phone: self.booking.phone,
-      seat: self.booking.seat,
       movie_session_id: self.booking.movie_session_id
     }
     const seats = self.booking.seats
-    console.log(seats)
-    self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
+
+    for (let seat of seats){
+      booking.seat = seat
+      self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
       self.id = response.body.id
-    })
+      })
+    }
   },
   getBookingByID(self) {
     const endpoint = 'http://localhost:3000/api/v1/bookings'
     self.$http.get(endpoint).then(response => {
-      self.booking = response.body.filter(booking => booking.id == self.$route.params.id)[0]
+      const booking = response.body
+      self.booking = booking.filter(booking => booking.id == self.$route.params.id)[0]
+      const bookingOne = self.booking
+      const bookingAll = booking.filter(booking => booking.email == bookingOne.email )
+      for (let book of bookingAll) {
+        self.places.push(book.seat)
+      }
     }, response => {
       console.log('ошибка')
     })

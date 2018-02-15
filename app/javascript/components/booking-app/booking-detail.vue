@@ -5,8 +5,10 @@
       <p>Имя: {{booking.name}}</p>
       <p>{{booking.email}}</p>
       <p>{{booking.phone}}</p>
-      <p>Ряд: {{row}}</p>
-      <p>Место: {{char}}</p>
+      <p> Билеты "ряд:место": 
+        [ <span v-for="place in places">{{place}} </span>]
+      </p>
+ 
     </div>
   </div>
 </template>
@@ -17,6 +19,7 @@
     data() {
       return {
         booking: Object,
+        places: []
       }
     },
     methods: {

@@ -19,10 +19,9 @@
               <input type="text" v-model="booking.phone" id="phone"><br/>
             </div>
             <div class="form-group">
-              <p>Ряд: {{booking.row}}</p>
-            </div>
-            <div class="form-group">
-              <p>Место: {{booking.char}}</p>
+              <p> Билеты "ряд:место": 
+              [ <span v-for="seat in booking.seats">{{seat}} </span>]
+            </p>
             </div>
             <div class="form-group">
               <button v-on:click="postBooking()" class="btn btn-default">Сохранить</button>
@@ -35,8 +34,9 @@
             <p>Имя: {{booking.name}}</p>
             <p>{{booking.email}}</p>
             <p>{{booking.phone}}</p>
-            <p>Ряд: {{booking.row}}</p>
-            <p>Место: {{booking.char}}</p>
+             <p> Билеты "ряд:место": 
+              [ <span v-for="seat in booking.seats">{{seat}} </span>]
+            </p>
           </div>
           <router-link :to="'/booking/'+ id">
             <button>распечатать</button>
