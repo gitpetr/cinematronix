@@ -40,7 +40,7 @@ export default {
       bookings.push(copy)
     }
       self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": bookings}).then((response) => {
-      self.id = response.body[0].id
+      self.id = response.body.pop().id
       })
 
   },
