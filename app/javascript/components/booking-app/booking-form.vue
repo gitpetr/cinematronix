@@ -79,8 +79,7 @@
       },
       setPlace(place) {
         if (place[1] == true) {
-          this.booking.seat = place[0]
-          this.booking.seats.push(this.booking.seat)
+          this.booking.seats.push(place[0])
         }
         else {
           let indexStat = this.booking.seats.indexOf(place[0])
