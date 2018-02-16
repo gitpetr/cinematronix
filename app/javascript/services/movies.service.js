@@ -36,15 +36,11 @@ export default {
 
     for (let seat of seats){
       booking.seat = seat
-      bookings.push(booking)
-      self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
-      self.id = response.body.id
-      })
+      var copy = Object.assign({}, booking);
+      bookings.push(copy)
     }
       self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": bookings}).then((response) => {
-      console.log (response.body)
       self.id = response.body[0].id
-
       })
 
   },
