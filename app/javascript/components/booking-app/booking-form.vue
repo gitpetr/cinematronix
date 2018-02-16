@@ -66,14 +66,10 @@
           name: '',
           email: '',
           phone: '',
-          row: '',
-          char: '',
-          seat: '',
           seats: []
         },
         id: Number,
-        showForm: true,
-        hallmap: ''
+        showForm: true
       }
     },
     methods: {
@@ -82,10 +78,14 @@
         this.showForm = false
       },
       setPlace(place) {
-        this.booking.seat = place
-        this.booking.row = place.split(':')[0]
-        this.booking.char = place.split(':')[1]
-        this.booking.seats.push(this.booking.seat)
+        if (place[1] == true) {
+          this.booking.seat = place[0]
+          this.booking.seats.push(this.booking.seat)
+        }
+        else {
+          let indexStat = this.booking.seats.indexOf(place[0])
+          this.booking.seats.splice(indexStat, 1)
+        }
       }
     } 
   }

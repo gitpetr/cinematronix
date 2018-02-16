@@ -1,14 +1,16 @@
 <template>
   <div>
     <h3>Схема зала</h3>
+
     <table class="hall">
       <tr v-for="nRow in hallrows">
         <td class="nrow">{{nRow}} Ряд</td>
-        <char v-bind:nRow="nRow"
-              v-bind:hallseats="hallseats"
+        <chair v-for="nSeat in hallseats"
+              v-bind:nRow="nRow"
+              v-bind:nSeat="nSeat"
               v-bind:bookseats="bookseats"
               @setPlace="setPlace">
-        </char>
+        </chair>
       </tr>
     </table>
   </div>
@@ -16,10 +18,10 @@
 
 <script>
   import MovieService from '../../services/movies.service.js'
-  import Char from './booking-char'
+  import Chair from './booking-char'
 
   export default {
-    components: {Char},
+    components: {Chair},
     data() {
       return {
         hallrows: Number,
@@ -56,7 +58,7 @@
 </script>
 
 <style lang="sass">
-  .clicked
+  td.clicked
     color: red
   td
     cursor: pointer
