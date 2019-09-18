@@ -31,14 +31,18 @@ export default {
       phone: self.booking.phone,
       movie_session_id: self.booking.movie_session_id
     }
+    let bookings = []
     const seats = self.booking.seats
 
     for (let seat of seats){
       booking.seat = seat
-      self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": booking}).then((response) => {
-      self.id = response.body.id
-      })
+      var copy = Object.assign({}, booking);
+      bookings.push(copy)
     }
+      self.$http.post('http://localhost:3000/api/v1/bookings', {"booking": bookings}).then((response) => {
+      self.id = response.body.pop().id
+      })
+
   },
   getBookingByID(self) {
     const endpoint = 'http://localhost:3000/api/v1/bookings'

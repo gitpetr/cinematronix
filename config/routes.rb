@@ -24,4 +24,5 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:index]
   root 'movies#index'
+  mount ActionCable.server => '/cable'
 end

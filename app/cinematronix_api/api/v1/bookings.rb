@@ -19,13 +19,7 @@ module API::V1
 
       desc 'Create a booking.'
       params do
-        requires :booking, type: Hash do
-          requires :name
-          requires :email
-          requires :phone
-          requires :seat
-          requires :movie_session_id
-        end
+        requires :booking, type: Array 
       end
 
       post do
